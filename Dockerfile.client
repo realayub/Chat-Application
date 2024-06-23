@@ -1,0 +1,6 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y gcc libc6-dev
+WORKDIR /app
+COPY client.c .
+RUN gcc -o client client.c -lpthread
+CMD ["./client"]
